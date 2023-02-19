@@ -1,0 +1,147 @@
+.ctn-combobox{
+    position: relative;
+}
+.input-combobox{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.btn-updown-icon{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: 5px;
+    right: 5px;
+    padding: 2px;
+    border-radius: 10px;
+}
+.btn-updown-icon .updown-icon{
+    height:1.2rem;
+    width:1.2rem;
+    color: #023047;
+}
+
+.ctn-item-combobox{
+    position: absolute;
+    width: 98%;
+    top: 0;
+    margin-top: 2.3rem;
+    padding-top: 10px;
+    padding-bottom:  10px;
+    border: #E7E7E7 2px solid;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    color: #023047;
+    z-index: 100;
+    background-color: white;
+}
+.item-combobox,#item-combobox-bold,.item-combobox-active{
+    position: relative;
+    padding-left: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-size: .9rem;
+    position: relative;
+}
+.item-combobox-active{
+    background-color: #023047;
+    color: #E7E7E7;
+    cursor: pointer;
+}
+#item-combobox-bold{
+    font-weight: bold;
+}
+.check-icon-combobox{
+    width: 20px;
+    height: 20px;
+    color: #8ECAE6;
+}
+.ctn-checkicon, .ctn-checkicon-active{
+    position: absolute;
+    top: 0;
+    margin-top: 1rem;
+    left: 0;
+}
+.option-item-combobox-active,.option-item-combobox{
+    background-color: #023047;
+    color: #E7E7E7;
+}
+.ctn-fields-2{
+    display: grid;
+    grid-template-columns: repeat(2, minmax(100px, 1fr));
+    column-gap: 10px;
+    row-gap: 10px;
+}
+.box-nothing{
+    font-size: .9rem;
+    background-color: white;
+    padding-left: 20px;
+}
+.btn-save-add{
+    background-color: #FFB703;
+    color: #023047;
+    padding: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 10px;
+}
+.ctn-item-dropzone{
+    margin: auto;
+    width: 100%;
+    height: 22vh;
+    padding: 5pc;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.item-dropzone{
+    border-radius: 10px;
+    border: #E7E7E7 2px solid;
+    text-align: center;
+    width: fit-content;
+    padding: 5pc;
+}
+.sec-btn-send{
+    display: flex;
+    flex-direction: row;
+}
+.btn-add,.btn-add-save{
+    padding: .7pc;
+    padding-left: 1pc;
+    padding-right: 1pc;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    margin-left: 10px;
+    margin-bottom: 1pc;
+    display: flex;
+    flex-direction: row;
+}
+.btn-add-save{
+    background-color: #FFB703;
+    color: #023047;
+}
+.btn-add{
+    background-color:#007BE8 ;
+    color: #E7E7E7;
+}
+.ctn-drop-img{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 50vh;
+    padding-left: 1.2pc;
+}
+.ctn-img-product{
+    width: 100%;
+    height: 24vh;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.ctn-img-product .img-product{
+    background-repeat: no-repeat;
+    object-fit: contain;
+    width: 30vw;
+    height: 28vh;
+    margin: auto;
+}

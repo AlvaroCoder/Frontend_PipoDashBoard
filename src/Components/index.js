@@ -1,0 +1,9 @@
+export {default as NavBar} from './NavBar';
+export {default as Search} from './Search';
+export {default as FormLogin} from './FormLogin';
+export {default as SearchClient} from './SearchClient';
+export {default as ComboBox} from './ComboBoxTipo';
+export {default as ComBoBoxAdd} from './ComboBoxMarca';
+export {default as TableProducts} from './TableProducts';
+export {default as ProveedorPopUp }from './ProveedorPopUp';
+export {default as ComboBoxProveedor} from './ComboBoxProveedor';

@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Inria+Serif&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;1,600&display=swap');
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Inria Serif', serif;
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    color: #023047;
+}
+
+
+.ctn-loader{
+    width: 100%;
+    height: 100vh;
+    position: absolute;
+    z-index: 100;
+    background-color: rgba(217, 217, 217, .3);
+
+    display: grid;
+    place-items: center;
+}
+h1{
+    margin: 0;
+}
+.space-left{
+    margin-left: 10em;
+}
+input, textarea{
+    outline:none;
+}
+#input-error{
+    border: #8f0404 1px solid;
+}
+textarea{
+    resize: none;
+}
+button{
+    background-color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    color: #023047;
+}
+/*------------------------------------------------------------- LOGIN PAGE ------------------------------- */
+.container-login{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
+.sec-form{
+    width: 50%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container-login .sec-form{
+    padding: 2pc;
+}
+
+.login-form{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+form{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#login-title{
+    text-align: center;
+    font-size: 1.8em;
+    margin-bottom: 1rem;
+}
+.lbl-form{
+    width: 90%;
+    margin: auto;
+}
+.btn-login{
+    background-color: #023047;
+    color: white;
+    cursor: pointer;
+    padding: .7pc;
+    border: none;
+    margin: auto;
+    margin-top: 2pc;
+    font-weight: bold;
+    font-size: 1em;
+    border-radius: 5px;
+    width: 90%;
+}
+.login-imageBackground{
+    height: 100vh;
+    width: 50%;
+    background-color: #D9D9D9;
+}
+.error-card{
+    width: 100%;
+    color: #8f0404;
+    font-weight: bold;
+    text-align: center;
+}
+#usuario, #password{
+    display: flex;
+    flex-direction: column;
+}
+.text-form{
+    font-size: 1.1rem;
+    position: relative;
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+#lock,#person{
+    position: absolute;
+}
+.sec-form .input-form{
+    width: 90%;
+    position: relative;
+    border: none;
+    padding: 10px;
+    margin-left: 30px;
+}
+
+.input-form{
+    width: 90%;
+    position: relative;
+    border: #D9D9D9 2px solid;
+    padding: 10px;
+    margin-left: 30px;
+}
+.box-input-form{
+    width: 100%;
+    height: auto;
+    position: relative;
+    border-bottom: #023047 2px solid;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+/*----------------------------------------------------------------------*/
+@media only screen and (max-width: 500px) {
+    .navbar-layout{
+        flex-direction: column;
+    }
+    nav{
+        order: 2;
+        height: 6vh;
+        width: 100%;
+        font-size: 0.7em;
+        display: flex;
+        justify-content: center;
+    }
+    nav:hover{
+        width: 100%;
+    }
+    .nav-ctn-routes{
+        flex-direction: row;
+    }
+    .ctn-search{
+        order: 1;
+    }
+}
