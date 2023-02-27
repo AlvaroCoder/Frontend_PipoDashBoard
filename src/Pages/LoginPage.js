@@ -35,6 +35,7 @@ function LoginPage() {
     async function SendData() {
       if (loadinPage) {
         const data2Send = data;
+        console.log(data2Send);
         await login(data2Send);
         setData({usuario : '', contrasenna : ''})
         setLoadinPage(false);

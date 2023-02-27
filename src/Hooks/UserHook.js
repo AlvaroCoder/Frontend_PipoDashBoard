@@ -32,6 +32,7 @@ export default function UserContext({children}) {
     const [cookieUser, setUserCookie, removeCookie] = useCookies(['user']);
     const login = async (data={})=>{
         const result = await LoginUser(data);
+        console.log(result);
         if (result.status === 500) {
             setError({message : 'Servidor no responde'})            
             return ;

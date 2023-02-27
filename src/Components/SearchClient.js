@@ -1,5 +1,6 @@
 import React, { useState, useMemo, useRef } from 'react'
 import { createAutocomplete } from  '@algolia/autocomplete-core'
+import { GetClientByLastName, GetClientByName } from '../Services/Database';
 
 const AutoCompleteItem =({nombre, apellido, razon_social})=>{
     const saveItem =(evt)=>{
@@ -23,7 +24,7 @@ function SearchClient(props) {
             {
                 sourceId : "api_client_name",
                 getItems : async ({ query })=>{
-                    return fetch(`http://localhost:8086/client/s/nombre/${query}`)
+                    return await GetClientByName(query)
                     .then(async (res)=>{
                         return await res.json()
                     })
@@ -32,7 +33,7 @@ function SearchClient(props) {
             {
                 sourceId : "api_client_apellido",
                 getItems : async ({query})=>{
-                    return fetch(`http://localhost:8086/client/s/apellido/${query}`)
+                    return await GetClientByLastName(query)
                     .then(async (res)=>{
                         return await res.json()
                     })
