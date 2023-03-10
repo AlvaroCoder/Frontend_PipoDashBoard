@@ -18,11 +18,16 @@ function PanelRoutes() {
                 <Route index element={<Layout><SearchPage/></Layout>}></Route>
                 <Route path='clientes' element={<Layout><Clients/></Layout>}>
                 </Route>
-                <Route path='inventario' element={<Layout><Products/></Layout>}></Route>
+                <Route path='productos/:url' element={<Layout><Products/></Layout>}>
+                    <Route path='unidad' ></Route>
+                    <Route path='paquete' ></Route>
+                </Route>
             </Route>
-            <Route path='/agregar/'>
+            <Route path='agregar'>
                 <Route path='cliente' element={<Layout><AddClient/></Layout>}></Route>
-                <Route path='producto' element={<Layout><AddProducts/></Layout>}></Route>
+                <Route path='producto'>
+                    <Route path='unidad' element={<Layout><AddProducts/></Layout>}></Route>
+                </Route>
                 <Route path='credito' element={<Layout><AddCredit/></Layout>}></Route>
             </Route>
             <Route path='/cliente/:nombre' element={<Layout><Client/></Layout>}></Route>

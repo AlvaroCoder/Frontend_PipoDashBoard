@@ -2,22 +2,21 @@
     --fondo:#2D3142;
     --white : #ffffff
 }
-#container{
-    width: 100%;
-    height: 100vh;
-    position: relative;
-}
+
 nav{
     position: fixed;
     height: 100vh;
     width: 10em;
     color: #023047;
     border-right: #023047 2px solid;
+    padding: 1rem;
+    font-size: 1.1rem;
 }
 
 .nav-ctn-routes{
     display: flex;
     flex-direction: column;
+    justify-content: flex-start;
     width: 100%;
 }
 .route .link-route{
@@ -25,10 +24,16 @@ nav{
     height: 57px;
     display: flex;
     flex-direction: row;
-    justify-content: flex-start;
     align-items: center;
     cursor: pointer;
     text-decoration: none;
+}
+.route{
+    border-radius: 5px;
+}
+.route:hover{
+    color: white;
+    background-color: #3b3e4e91;
 }
 
 .submenu .link-route{
@@ -49,4 +54,6 @@ nav{
 }
 .logo-details{
     text-align: center;
+    font-size: 1.4rem;
+    font-weight: 600;
 }

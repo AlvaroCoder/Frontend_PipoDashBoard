@@ -1,9 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Inria+Serif&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,600;1,600&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600;700&family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&display=swap');
 body{
     margin: 0;
     padding: 0;
-    font-family: 'Inria Serif', serif;
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Mukta', sans-serif;
     overflow-x: hidden;
     color: #023047;
 }
@@ -22,12 +22,27 @@ body{
 h1{
     margin: 0;
 }
-.space-left{
-    margin-left: 10em;
+/* -------------------------------- Style of Layout -----------------------*/
+#container{
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+    display: flex;
+    flex-direction: row;
 }
+.space-nav{
+    height: 100vh;
+    min-width: 11em;
+}
+.space-left{
+    min-width: 100%;
+    margin-left: 3em;
+}
+/*  ------------------------- End Style of Layout ----------------------*/
 input, textarea{
     outline:none;
 }
+
 #input-error{
     border: #8f0404 1px solid;
 }
@@ -166,4 +181,67 @@ p{
     .ctn-search{
         order: 1;
     }
+}
+
+/*------------------------ PRODUCT PAGE --------------------------------*/
+.ctn-products{
+    width: 100%;
+    height: 100vh;  
+}
+.ctn-products .navtop-products{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.ctn-products .head-table{
+    margin-left: 2pc;
+    width: 100%;
+    height: 90vh;
+}
+.form-type{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.form-type .item-field{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: calc(100% - 20pc);
+    position: relative;
+}
+.form-type .input-field{
+    margin-left: 5px;
+    width: 15pc;
+}
+.form-type .title-3{
+    width: 10pc;
+    margin-right: 5px;
+}
+#igv{
+    position: absolute;
+    background-color: #d9d9d973;
+    border-radius: 10px;
+    margin: auto;
+    margin-top: 8px;
+    margin-left: calc(50% - 5px);
+    padding: 5px 10px ;
+    min-height: 30px;
+}
+.item-field .btn-active{
+    color: #023047;
+}
+.item-field .btn-inactive{
+    color: #02304786;
+}
+
+.ctn-input-price{
+    position:  relative;
+}
+.ctn-input-money{
+    position: absolute;
+    top: 0;
+
 }

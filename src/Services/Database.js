@@ -1,6 +1,6 @@
 
-const API_URL = 'https://pipodashboard.fly.dev/'
-
+const API_URL = process.env.REACT_APP_API_ENDPOINT || 'https://pipodashboard.fly.dev/'
+console.log("🚀 ~ file: Database.js:3 ~ API_URL:", API_URL)
 export function LoginUser(data={}) {
     return fetch(`${API_URL}admin/signin`,{
         method : 'GET',

@@ -1,21 +1,84 @@
 import React,{useEffect, useState} from 'react'
 import { Link } from 'react-router-dom';
 import '../Assets/Components/Clients.css'
-import { GetClients } from '../Services/Database'
+import { ButtonTable } from '../Components';
+import { GetClients } from '../Services/Database';
+function PopUpWindowCliente({changeShowPopUp}) {
+  const [showMore, setShowMore] = useState(false);
+  const changeShowMore = (evt)=>{
+    evt.preventDefault();
+    setShowMore(!showMore)
+  }
+  const changeShowPopupUpWindow =()=>{
+    changeShowPopUp(false)
+  }
+  return (
+    <div id='ctn-windowCliente'>
+      <div className='windowCliente'>
+        <div className='topWindowCliente'>
+          <h1>Nuevo Cliente</h1>
+          <button onClick={changeShowPopupUpWindow}><span class="material-symbols-outlined">close</span></button>
+        </div>       
+        <div className='bodyWindowCliente'>
+          <label>
+            <p>Tipo Documento</p>
+            <div id='optTipoDocWindowCliente'>
+                <label>RUC</label>
+                <label>DNI</label>
+                <label>SIN DOCUMENTO</label>
+            </div>
+          </label>
+          <label><p>N° de Documento</p><input/></label>
+          <label><p>Nombre</p><input/></label>
+          <label><p>Direccion</p></label>
+          <label>
+            <p>Tipo</p>
+            <div id='optTipoClienteWindowCliente'>
+              <label>Cliente</label>
+              <label>Proveedor</label>
+            </div>
+          </label>
+          <p className='' onClick={changeShowMore}>Ver Más</p>
+          {
+            showMore ?           
+            <div className='moreDetWindowCliente'>
+              <label><p>Telefono</p><input/></label>
+              <label><p>Detalle Cliente</p><textarea></textarea></label>
+            </div>
+            :null  
+          }
+        </div> 
+      </div>
+    </div>
+  )
+}
 function Clients() {
   const [client, setClient] = useState([]);
+  const [showPopUp, setShowPopUp] = useState(false);
   useEffect(() => {
     async function fetchData() {
       const clients = await GetClients();
-      const cliente_data = await clients.json()
+      const cliente_data = await clients.json();
       setClient(cliente_data);
     }
     fetchData()
   }, [])
-  
+  const changeShowPopUp = (evt)=>{
+    evt.preventDefault();
+    setShowPopUp(!showPopUp)
+  }
   return (
     <div className='ctn-clients'>
-        <h1>Clientes</h1>
+        {showPopUp ? <PopUpWindowCliente changeShowPopUp={setShowPopUp}/> : null}
+        <div id='nav-top'>
+          <div>
+            <h1 className='title-1'>Clientes / Proveedores</h1>
+          </div>
+          <div className='ctn-btns-top'>
+            <button onClick={changeShowPopUp} ><span>Nuevo Cliente / Proveedor</span></button>
+            <button>Exportar Clientes</button>
+          </div>
+        </div>
         <div className='ctn-col'>
           <div>
 
@@ -25,30 +88,22 @@ function Clients() {
               <table> 
                 <thead>
                   <tr>
-                    <th>Acciones</th>
-                    <th>Razon Social</th>
-                    <th>Nombre</th>
-                    <th>Apellido</th>
-                    <th>Fecha Cumpleaños</th>
-                    <th>Genero</th>
-                    <th>Calificacion</th>
-                    <th>Vip</th>
+                    <th>Documento</th>
+                    <th>Nombre / Razon Social</th>
+                    <th>Telefono</th>
                     <th>Saldo</th>
+                    <th>Acciones</th>
                   </tr>
                 </thead>
                 <tbody>
                   {client.map(el=>{
                     return (
-                      <tr className='row-table'>
-                        <td><button><span className="material-symbols-outlined">edit</span></button></td>
-                        <td>{el.razon_social}</td>
-                        <td><Link to={`/cliente/${el.nombre}`}><span>{el.nombre}</span></Link></td>
-                        <td>{el.apellido}</td>
-                        <td>{el.fecha_cumpleannos && el.fecha_cumpleannos.toString().slice(0,10)}</td>
-                        <td>{el.genero}</td>
-                        <td>{el.calificacion}</td>
-                        <td>{el.esVip === 1 ? 'Es vip' : 'No es Vip'}</td>
+                      <tr className='row-table' key={el.documento}>
+                        <td>{String(el.documento) === "0" ? <p><span>SIN DOCUMENTO</span> 00000000</p> : (String(el.documento).length === 8 ? <p><span>DNI</span> {el.documento}</p> : <p><span>RUC</span> {el.documento}</p>) }</td>
+                        <td><Link to={`/cliente/${el.idcliente}`}><span>{el.nombre}, {el.apellido}</span></Link></td>
+                        <td>{el.telefono}</td>
                         <td>{el.saldo}</td>
+                        <td><ButtonTable /></td>
                       </tr>
                     )
                   })}

@@ -7,3 +7,5 @@ export {default as ComBoBoxAdd} from './ComboBoxMarca';
 export {default as TableProducts} from './TableProducts';
 export {default as ProveedorPopUp }from './ProveedorPopUp';
 export {default as ComboBoxProveedor} from './ComboBoxProveedor';
+export {default as InputPrice} from './InputPrice';
+export {default as ButtonTable }from './ButtonTable';
