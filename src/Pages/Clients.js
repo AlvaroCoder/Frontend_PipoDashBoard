@@ -1,57 +1,9 @@
 import React,{useEffect, useState} from 'react'
 import { Link } from 'react-router-dom';
 import '../Assets/Components/Clients.css'
-import { ButtonTable } from '../Components';
+import { ButtonTable,  PopUpWindowCliente } from '../Components';
 import { GetClients } from '../Services/Database';
-function PopUpWindowCliente({changeShowPopUp}) {
-  const [showMore, setShowMore] = useState(false);
-  const changeShowMore = (evt)=>{
-    evt.preventDefault();
-    setShowMore(!showMore)
-  }
-  const changeShowPopupUpWindow =()=>{
-    changeShowPopUp(false)
-  }
-  return (
-    <div id='ctn-windowCliente'>
-      <div className='windowCliente'>
-        <div className='topWindowCliente'>
-          <h1>Nuevo Cliente</h1>
-          <button onClick={changeShowPopupUpWindow}><span class="material-symbols-outlined">close</span></button>
-        </div>       
-        <div className='bodyWindowCliente'>
-          <label>
-            <p>Tipo Documento</p>
-            <div id='optTipoDocWindowCliente'>
-                <label>RUC</label>
-                <label>DNI</label>
-                <label>SIN DOCUMENTO</label>
-            </div>
-          </label>
-          <label><p>N° de Documento</p><input/></label>
-          <label><p>Nombre</p><input/></label>
-          <label><p>Direccion</p></label>
-          <label>
-            <p>Tipo</p>
-            <div id='optTipoClienteWindowCliente'>
-              <label>Cliente</label>
-              <label>Proveedor</label>
-            </div>
-          </label>
-          <p className='' onClick={changeShowMore}>Ver Más</p>
-          {
-            showMore ?           
-            <div className='moreDetWindowCliente'>
-              <label><p>Telefono</p><input/></label>
-              <label><p>Detalle Cliente</p><textarea></textarea></label>
-            </div>
-            :null  
-          }
-        </div> 
-      </div>
-    </div>
-  )
-}
+
 function Clients() {
   const [client, setClient] = useState([]);
   const [showPopUp, setShowPopUp] = useState(false);
@@ -98,10 +50,10 @@ function Clients() {
                 <tbody>
                   {client.map(el=>{
                     return (
-                      <tr className='row-table' key={el.documento}>
+                      <tr className='row-table' key={el.idcliente}>
                         <td>{String(el.documento) === "0" ? <p><span>SIN DOCUMENTO</span> 00000000</p> : (String(el.documento).length === 8 ? <p><span>DNI</span> {el.documento}</p> : <p><span>RUC</span> {el.documento}</p>) }</td>
                         <td><Link to={`/cliente/${el.idcliente}`}><span>{el.nombre}, {el.apellido}</span></Link></td>
-                        <td>{el.telefono}</td>
+                        <td>{el.telefono ? el.telefono : '-'}</td>
                         <td>{el.saldo}</td>
                         <td><ButtonTable /></td>
                       </tr>

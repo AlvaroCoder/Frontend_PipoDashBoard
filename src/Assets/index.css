@@ -4,10 +4,9 @@ body{
     margin: 0;
     padding: 0;
     font-family: 'Mukta', sans-serif;
-    overflow-x: hidden;
+    overflow: hidden;
     color: #023047;
 }
-
 
 .ctn-loader{
     width: 100%;
@@ -32,17 +31,22 @@ h1{
 }
 .space-nav{
     height: 100vh;
-    min-width: 11em;
+    min-width: 13em;
 }
 .space-left{
-    min-width: 100%;
-    margin-left: 3em;
+    min-width: calc(100% - 13em);
+    min-height: 100vh;
 }
+
 /*  ------------------------- End Style of Layout ----------------------*/
 input, textarea{
     outline:none;
+    
 }
-
+input:focus{
+    border-color: #3399FF;
+    box-shadow:  0 0 0 3px #3399ff8f;
+}
 #input-error{
     border: #8f0404 1px solid;
 }
@@ -178,9 +182,7 @@ p{
     .nav-ctn-routes{
         flex-direction: row;
     }
-    .ctn-search{
-        order: 1;
-    }
+    
 }
 
 /*------------------------ PRODUCT PAGE --------------------------------*/

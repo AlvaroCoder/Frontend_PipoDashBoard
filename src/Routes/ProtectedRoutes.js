@@ -38,7 +38,7 @@ function PanelRoutes() {
 function LoginRoutes() {
     return (
         <Routes>
-            <Route path='/' element={<LoginPage/>}></Route>
+            <Route exact path='/' element={<LoginPage/>}></Route>
             <Route path='*' element={<LostPage/>}></Route>
         </Routes>
         )

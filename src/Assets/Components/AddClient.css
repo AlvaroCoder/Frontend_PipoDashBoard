@@ -12,15 +12,18 @@
     column-gap: 20px;
     row-gap: 20px;
 }
-.input-field{
+.label-windowCliente .input-field{
     border: #E7E7E7 2px solid;
     padding: 5px 15px 5px 15px;
     height: 1.2pc;
-    border-radius: 10px;
+    border-radius: 5px;
+    font-size: .8rem    ;
     color: #023047;
     font-family: 'Inria Serif', serif;
     font-family: 'Poppins', sans-serif;
+    width: 100%;
 }
+
 .item-field .details{
     display: flex;
     flex-direction: column;
@@ -110,22 +113,111 @@
     color: #023047;
 }
 /* --------------------- PopUp Window -----------------*/
-
+#container-windowCliente{
+    width: 100%;
+    height: 100vh;
+    overflow: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 #ctn-windowCliente{
     position: fixed;
     z-index: 200;
-    width: 100%;
+    min-width: 100%;
+    max-height: 100vh;
     height: 100vh;
-    background-color: #023047b9;
+    top: 0;
+    left: 0;
+    background-color: #31383bb9;
     display: grid;
-
+    padding: 15px 0px;
+    overflow-x: auto;
 }
 .windowCliente{
-
     place-self: center;
     min-height: 12vh;
-    min-width: 30em;
+    max-width: 500px;
     background-color: white;
     border-radius: 5px;
+    margin: 1.75rem auto;
     z-index: 300;
+}
+.topWindowCliente{
+    width: 460px;
+    font-size: 0.7rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: 1px #023047 solid;
+    box-sizing: border-box;
+}
+.label-windowCliente{
+    box-sizing: content-box;
+    display: flex;
+    flex-direction: row;
+    margin-top: 10px;
+}
+.bodyWindowCliente{
+    padding: 10px 15px;
+    box-sizing: border-box;
+}
+.label-windowCliente #title-label, .label-windowCliente #optTipoDocWindowCliente{
+    padding: 1rem 0px;
+}
+
+.p-optwindowCliente{
+    width: 40%;
+    font-size: .9rem    ;
+}
+#optTipoDocWindowCliente{
+    width: 60%;
+}
+.optTipoDoc{
+    padding: .5rem 0px;
+    font-size: .8rem;
+    color: gray;
+    width: 60%;
+}
+
+.optDoc:hover, #opt-active{
+    background-color: rgba(128, 128, 128, 0.336);
+    color: #023047;
+}
+
+.bottomWindowCliente{
+    border-top: #023047 1px solid;
+    padding: 1rem 10px;
+    display: flex;
+    justify-content: flex-end;
+}
+.bottomWindowCliente button{
+    padding: .8rem 10px;
+}
+#saveBtn{
+    background-color: #023047;
+    color: white;
+    border-radius: 5px;
+    margin-left: 15px;
+}
+.ctn-inputOpt{
+    display: block;
+    box-sizing: border-box;
+    width: 55%;
+    padding-right: 10px;
+}
+.ctn-showMoreDetail{
+    min-width: 200px;
+    min-height: 5vh;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: .4rem 15px;
+}
+.showMoreDetail{
+    display: inline-block;
+    text-decoration-line: underline;
+    padding: 15px;
+    cursor: auto;
 }

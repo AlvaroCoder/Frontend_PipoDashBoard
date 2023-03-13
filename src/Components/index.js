@@ -9,3 +9,5 @@ export {default as ProveedorPopUp }from './ProveedorPopUp';
 export {default as ComboBoxProveedor} from './ComboBoxProveedor';
 export {default as InputPrice} from './InputPrice';
 export {default as ButtonTable }from './ButtonTable';
+export {default as InputList} from './ComboBoxData';
+export {default as PopUpWindowCliente} from './PopUpClienteProv'

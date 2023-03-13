@@ -59,13 +59,13 @@ function LoginPage() {
                 <h1 id='login-title'>Iniciar Sesión</h1>
                   <label className='lbl-form' id='usuario'>
                     <div className='box-input-form'>
-                      <span id='person' class="material-symbols-outlined">person</span> 
+                      <span id='person' className="material-symbols-outlined">person</span> 
                       <input className='input-form' name='usuario' placeholder='Usuario' value={data.usuario} onChange={handleChange}></input>
                     </div>
                   </label>
                   <label className='lbl-form' id='password'>
                     <div className='box-input-form'>
-                      <span id='lock' class="material-symbols-outlined">lock</span>
+                      <span id='lock' className="material-symbols-outlined">lock</span>
                       <input type='password' className='input-form' name='contrasenna' placeholder='Contraseña' value={data.contrasenna} onChange={handleChange}></input>
                     </div>
                   </label>

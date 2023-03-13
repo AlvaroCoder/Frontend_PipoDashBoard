@@ -20,7 +20,7 @@ const ContextUser = createContext({
     cookieUser : {},
     error : {message : ''},
     login : async (data)=>{},
-    signout : ()=>{}
+    logout : ()=>{}
 });
 
 export const useUser=()=>{
@@ -32,7 +32,6 @@ export default function UserContext({children}) {
     const [cookieUser, setUserCookie, removeCookie] = useCookies(['user']);
     const login = async (data={})=>{
         const result = await LoginUser(data);
-        console.log(result);
         if (result.status === 500) {
             setError({message : 'Servidor no responde'})            
             return ;
@@ -51,10 +50,11 @@ export default function UserContext({children}) {
         return;
     }
     const logout = ()=>{
-        removeCookie("user")
+        removeCookie("user");
+        return;
     }
     return (
-        <ContextUser.Provider value={{user, login, error,cookieUser}}>
+        <ContextUser.Provider value={{user, login, error,cookieUser,logout}}>
             {children}
         </ContextUser.Provider>
     )
