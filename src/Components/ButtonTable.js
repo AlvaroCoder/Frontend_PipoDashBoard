@@ -6,6 +6,9 @@ function PopUpWindow() {
             <div className='opt-popup'>
                 <p>Editar</p>
             </div>
+            <div className='opt-popup'>
+                <p>Ver</p>
+            </div>
             <div  className='opt-popup'>
                 <p>Eliminar</p>
             </div>

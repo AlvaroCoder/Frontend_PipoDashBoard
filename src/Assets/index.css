@@ -59,6 +59,7 @@ button{
     outline: none;
     cursor: pointer;
     color: #023047;
+    padding: .875rem;
 }
 /*------------------------------------------------------------- LOGIN PAGE ------------------------------- */
 .container-login{

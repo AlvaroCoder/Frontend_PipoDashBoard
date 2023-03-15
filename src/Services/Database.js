@@ -32,6 +32,29 @@ export function SaveData(data, token) {
         body : JSON.stringify(data)
     })
 }
+
+export function SaveProveedor(data, token) {
+    return fetch(`${API_URL}proveedor/`,{
+        method : 'POST',
+        headers : {
+            'Authorization' : String(token),
+            'Content-Type' : 'application/json'
+        },
+        body : JSON.stringify(data) 
+    })
+}
+
+export function SaveClient(data, token) {
+    return fetch(`${API_URL}client/`,{
+        method : 'POST',
+        mode : 'cors',
+        headers : {
+            'Authorization' : String(token),
+            'Content-Type' : 'application/json'
+        },
+        body : JSON.stringify(data)
+    })
+}
 export function GetClients() {
     return fetch(`${API_URL}client/`,{
         method : 'GET',
@@ -78,3 +101,4 @@ export function GetProveedor() {
         mode :'cors'
     })
 }
+

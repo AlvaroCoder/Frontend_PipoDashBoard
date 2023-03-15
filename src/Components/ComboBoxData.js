@@ -203,13 +203,12 @@ CustomSelect.propTypes = {
   };
   
   
-export default function UnstyleListParams({data}) {
-    const copyData = data 
-    const [data2Send, setData2Send] = React.useState('');
+export default function UnstyleListParams({data,setData}) {
+    const copyData = [...data] 
     const onChangeData2Send = (evt)=>{
         evt.preventDefault();
-        setData2Send(evt.target.value)
-    }
+        setData(evt.target.outerText.toUpperCase())
+      }
     return(
         <CustomSelect
             defaultValue = {copyData[0].nombre}
