@@ -1,6 +1,6 @@
 
-//process.env.REACT_APP_API_ENDPOINT
-const API_URL =  'http://localhost:8080/'
+//
+const API_URL =  process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8080/'
 
 export function LoginUser(data={}) {
     return fetch(`${API_URL}admin/signin`,{
