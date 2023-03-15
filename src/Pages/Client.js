@@ -1,10 +1,14 @@
 import React from 'react'
 import { useParams } from 'react-router-dom';
 
-function Client({clients}) {
-    const {nombre} = useParams()
+function Client() {
+    const {idcliente} = useParams();
+    console.log("🚀 ~ file: Client.js:6 ~ Client ~ idcliente:", idcliente)
+    
     return (
-    <div>Client : {nombre}</div>
+    <div>
+        Bienvenido Cliente : {idcliente}
+    </div>
     )
 }
 

@@ -30,7 +30,7 @@ function PanelRoutes() {
                 </Route>
                 <Route path='credito' element={<Layout><AddCredit/></Layout>}></Route>
             </Route>
-            <Route path='/cliente/:nombre' element={<Layout><Client/></Layout>}></Route>
+            <Route path='/cliente/:idcliente' element={<Layout><Client/></Layout>}></Route>
             <Route path='*' element={<LostPage/>}></Route>
         </Routes>
     )

@@ -11,7 +11,9 @@ export function LoginUser(data={}) {
         }
     })
 };
-
+export function GetClientById(idcliente) {
+    return;
+}
 export function GetClientByName(name) {
     return fetch(`${API_URL}client/s/nombre/${name}`,{
         method : 'GET'
