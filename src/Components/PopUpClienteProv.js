@@ -4,7 +4,7 @@ import {  InputList } from '../Components';
 import { useClient } from '../Hooks/ClientHook';
 import { useCookies } from 'react-cookie';
 import LoadingPage from '../Pages/LoadingPage';
-function PopUpClienteProv({changeShowPopUp}) {
+function PopUpClienteProv({changeShowPopUp,changeOk}) {
     const { saveClient } = useClient();
     const [showMore, setShowMore] = useState(false);
     const [cookieUser] = useCookies(['user'])
@@ -76,10 +76,15 @@ function PopUpClienteProv({changeShowPopUp}) {
         if (response >= 200 && response < 400) {
           setLoading(false)
           changeShowPopUp(false)
-          alert(`${tipoCliente} creado correctamente`)
+          changeOk(true)
+          setTimeout(()=>{
+            changeOk(false)
+          },3000)
+        }else{
+          setLoading(false)
         }
       }
-      
+    
       if (loading) {
         return <LoadingPage/>
       }else{
@@ -142,7 +147,7 @@ function PopUpClienteProv({changeShowPopUp}) {
                     </label>
                     <label className='label-windowCliente'>
                       <p className='p-optwindowCliente'>Correo</p>
-                      <input onChange={onChange} type="email" className='input-field'/>
+                      <input name='correo' onChange={onChange} type="email" className='input-field'/>
                     </label>
                     <label className='label-windowCliente'><p className='p-optwindowCliente'>Detalle Cliente</p><textarea ></textarea></label>
                   

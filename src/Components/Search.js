@@ -4,7 +4,7 @@ function Search() {
   return (
     <section className='ctn-search'>
       <div className='search'>
-        <h1>Buscar Cliente/Proveedor/Producto</h1>
+        <h1 className='title-search'>Busca Cliente / Proveedor / Producto</h1>
         <div className='ctn-form-search'>
           <SearchClient></SearchClient>
         </div>

@@ -18,9 +18,7 @@ function PanelRoutes() {
                 <Route index element={<Layout><SearchPage/></Layout>}></Route>
                 <Route path='clientes' element={<Layout><Clients/></Layout>}>
                 </Route>
-                <Route path='productos/:url' element={<Layout><Products/></Layout>}>
-                    <Route path='unidad' ></Route>
-                    <Route path='paquete' ></Route>
+                <Route path='products' element={<Layout><Products/></Layout>}>
                 </Route>
             </Route>
             <Route path='agregar'>

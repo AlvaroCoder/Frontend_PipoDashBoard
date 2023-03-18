@@ -216,7 +216,7 @@ export default function UnstyleListParams({data,setData}) {
         >
         {
             copyData.map((val)=>{
-                return <StyledOption key={val.index} value={val.nombre}>{val.displayName}</StyledOption>
+                return <StyledOption key={val.index} value={val.nombre}>{val.displayName || val.valor}</StyledOption>
             })
         }                    
         </CustomSelect>

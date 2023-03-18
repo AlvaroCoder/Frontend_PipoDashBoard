@@ -1,6 +1,7 @@
 
-//
-const API_URL =  process.env.REACT_APP_API_ENDPOINT || 'http://localhost:8080/'
+// process.env.REACT_APP_API_ENDPOINT
+//"https://pipodashboard.fly.dev/" 
+const API_URL = "https://pipodashboard.fly.dev/" || 'http://localhost:8080/'
 
 export function LoginUser(data={}) {
     return fetch(`${API_URL}admin/signin`,{
@@ -12,7 +13,10 @@ export function LoginUser(data={}) {
     })
 };
 export function GetClientById(idcliente) {
-    return;
+    return fetch(`${API_URL}client/${idcliente}`,{
+        method : 'GET',
+        mode :'cors'
+    })
 }
 export function GetClientByName(name) {
     return fetch(`${API_URL}client/s/nombre/${name}`,{
@@ -104,3 +108,20 @@ export function GetProveedor() {
     })
 }
 
+export function GetCategory() {
+    return fetch(`${API_URL}product/categoria`,{
+        method : 'GET',
+        mode : 'cors'
+    })
+}
+
+export function DeleteClient(idcliente,token) {
+    return fetch(`${API_URL}client/`,{
+        method : 'DELETE',
+        mode : 'cors',
+        headers : {
+            'Authorization':String(token),
+            'client-id' : String(idcliente)
+        }
+    })
+}

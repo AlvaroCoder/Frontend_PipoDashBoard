@@ -11,7 +11,7 @@ function NavBar() {
     const routes = [
         {nombre : 'Buscar', logo : 'person_search', route : '/', active : false},
         {nombre : 'Clientes', logo : 'contact_page', route : '/clientes', active : false},
-        {nombre: 'Productos', logo:'inventory', route:'/productos/unidad', active : false},
+        {nombre: 'Productos', logo:'inventory', route:'/products', active : false},
         {nombre : 'Reportes', logo : 'monitoring', route : '/', active :  false},
         {nombre : 'Ajustes', logo : 'settings', route : '/', active : false}
     
@@ -45,9 +45,9 @@ function NavBar() {
             </div>
             <div className='nav-ctn-routes'>
                 {
-                    routes.map((val)=>{
+                    routes.map((val,key)=>{
                         return (
-                            <div className='route'>
+                            <div key={key} className='route'>
                                 <Link className='link-route' to={val.route}><span className='material-symbols-outlined'>{val.logo}</span><p className='item-route'>{val.nombre}</p></Link>
                             </div>
                         )

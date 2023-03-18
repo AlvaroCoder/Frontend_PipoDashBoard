@@ -1,24 +1,32 @@
 import React, { useState, useMemo, useRef } from 'react'
 import { createAutocomplete } from  '@algolia/autocomplete-core'
 import { GetClientByLastName, GetClientByName } from '../Services/Database';
+import { Link } from 'react-router-dom';
 
-const AutoCompleteItem =({nombre, apellido, razon_social})=>{
+const AutoCompleteItem =({idcliente,nombre, apellido, documento,url})=>{
     const saveItem =(evt)=>{
         evt.preventDefault();
-        console.log(razon_social, nombre, apellido);
     }
-    return <li onClick={saveItem} className='item-search'>{razon_social}-{nombre},{apellido}</li>
+    return <Link style={{textDecoration:'none'}} to={`/cliente/${idcliente}`}>
+        <li onClick={saveItem} className='item-search'>
+        <div className='img-item-search'>
+            <img className='icon' src={url} alt='icon avatar'></img>
+        </div>
+        <div className='content-item-search'>
+            <h2 className='title-2'>{apellido}, {nombre}</h2>
+            <p><strong>{documento===0?'SIN DOCUMENTO':String(documento).length===8?'DNI':String(documento).length===11?'RUC':null}</strong> {documento}</p>
+        </div>
+        </li>
+    </Link>
 }
 
-// Componente de busqueda al cliente, renderizado al inicio
 function SearchClient(props) {
-
     const [autocompleteState, setAutocompleteState] = useState({
         collections : [],
         isOpen : false
     });
     const autocomplete = useMemo(() => createAutocomplete({
-        placeholder : 'Ingresa el nombre o apellido',
+        placeholder : 'Buscar ...',
         onStateChange : ({state})=>setAutocompleteState(state),
         getSources :  ()=>[
             {
@@ -69,7 +77,7 @@ function SearchClient(props) {
                                     items.length > 0 && (
                                         <ul {...autocomplete.getListProps()}>
                                             {
-                                                items.map(item => <AutoCompleteItem key={item.idcliente} {...item}/>)
+                                                items.map((item) => <AutoCompleteItem key={item.idcliente} {...item}/>)
                                             }
                                         </ul>
                                     ) 
