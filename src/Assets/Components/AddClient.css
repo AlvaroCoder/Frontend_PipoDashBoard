@@ -14,16 +14,19 @@
 }
 .label-windowCliente .input-field{
     border: #E7E7E7 2px solid;
-    padding: 5px 15px 5px 15px;
+    padding: 10px 15px 10px 15px;
     height: 1.2pc;
     border-radius: 5px;
-    font-size: .8rem    ;
+    font-size: .9rem    ;
     color: #023047;
     font-family: 'Inria Serif', serif;
     font-family: 'Poppins', sans-serif;
-    width: 100%;
+    width: calc(100% - 2.1rem);
+    background-color: rgba(243, 243, 243, 0.815);
 }
-
+.label-windowCliente .input-field:focus{
+    background-color: white;
+}
 .item-field .details{
     display: flex;
     flex-direction: column;
@@ -144,7 +147,7 @@
     z-index: 300;
 }
 .topWindowCliente{
-    width: 460px;
+    width: 100%;
     font-size: 0.7rem;
     display: flex;
     flex-direction: row;

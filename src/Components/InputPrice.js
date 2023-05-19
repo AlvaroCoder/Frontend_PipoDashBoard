@@ -41,7 +41,7 @@ const Button = React.forwardRef(function Button(props, ref) {
 
 const StyledInputElement = styled('input')(
     ({ theme }) => `
-    width: 300px;
+    width: calc(100% - 5.5rem);
     font-family: IBM Plex Sans, sans-serif;
     font-size: 0.875rem;
     font-weight: 400;
@@ -50,7 +50,7 @@ const StyledInputElement = styled('input')(
     padding-left:75px;
     border-radius: 12px;
     color: ${theme.palette.mode === 'dark' ? grey[300] : grey[900]};
-    background: ${theme.palette.mode === 'dark' ? grey[900] : '#fff'};
+    background: ${theme.palette.mode === 'dark' ? grey[900] : 'rgba(243, 243, 243, 0.815)'};
     border: 1px solid ${theme.palette.mode === 'dark' ? grey[700] : grey[200]};
     &::-webkit-inner-spin-button {
         -webkit-appearance: none;
@@ -63,6 +63,7 @@ const StyledInputElement = styled('input')(
     &:focus {
       border-color: ${blue[400]};
       box-shadow: 0 0 0 3px ${theme.palette.mode === 'dark' ? blue[500] : blue[200]};
+      background-color:white;
     }
   
     // firefox
@@ -237,9 +238,8 @@ CustomSelect.propTypes = {
 
 
 
-export default function UnstyledSelectIntroduction() {
+export default function UnstyledSelectIntroduction({setMoney}) {
     const moneys = [{nombre : 'SOLES', icon : 'S/.'},{nombre : 'DOLARES',icon : '$'},{ nombre : 'EUROS',icon : '€'}]
-    const [money, setMoney] = React.useState('');
     const [inputValue,setInputValue] = React.useState('');
 
     const onChangeMoney = (evt)=>{
@@ -260,7 +260,7 @@ export default function UnstyledSelectIntroduction() {
     }
     return (
         <div className='ctn-input-price'>
-            <CustomInput onChange={onChangeInput} value={inputValue} aria-label="Demo input" placeholder="Type something…"/>
+            <CustomInput onChange={onChangeInput} value={inputValue} aria-label="Demo input" placeholder="0"/>
             <div className='ctn-input-money'>
                 <CustomSelect 
                 defaultValue={moneys[0].nombre}

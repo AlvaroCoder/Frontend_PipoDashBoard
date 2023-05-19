@@ -190,11 +190,6 @@ const StyledOption = styled(OptionUnstyled)(
 
   
 CustomSelect.propTypes = {
-    /**
-     * The components used for each slot inside the Select.
-     * Either a string to use a HTML element or a component.
-     * @default {}
-     */
     slots: PropTypes.shape({
       listbox: PropTypes.elementType,
       popper: PropTypes.func,
@@ -205,6 +200,7 @@ CustomSelect.propTypes = {
   
 export default function UnstyleListParams({data,setData}) {
     const copyData = [...data] 
+    
     const onChangeData2Send = (evt)=>{
         evt.preventDefault();
         setData(evt.target.outerText.toUpperCase())

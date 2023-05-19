@@ -1,5 +1,14 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Mukta:wght@300;400;600;700&family=Vollkorn:ital,wght@0,400;0,500;0,600;0,700;1,600;1,700&display=swap');
+
+:root{
+    --body-color : #EDF2F4;
+    --primary-color : #2B2D42;
+    --secondary-color : #8D99AE;
+    --pbuttons-color : #EF233C;
+    --sbuttons-color : #D90429;
+}
+
 body{
     margin: 0;
     padding: 0;
@@ -13,7 +22,7 @@ body{
     height: 100vh;
     position: absolute;
     z-index: 100;
-    background-color: rgba(217, 217, 217, .3);
+    background-color: var(--body-color);
 
     display: grid;
     place-items: center;
@@ -21,32 +30,10 @@ body{
 h1{
     margin: 0;
 }
-/* -------------------------------- Style of Layout -----------------------*/
-#container{
-    width: 100%;
-    min-height: 100vh;
-    position: relative;
-    display: flex;
-    flex-direction: row;
-}
-.space-nav{
-    height: 100vh;
-    min-width: 13em;
-}
-.space-left{
-    min-width: calc(100% - 13em);
-    min-height: 100vh;
-}
-
-/*  ------------------------- End Style of Layout ----------------------*/
 input, textarea{
     outline:none;
-    
 }
-input:focus{
-    border-color: #3399FF;
-    box-shadow:  0 0 0 3px #3399ff8f;
-}
+
 #input-error{
     border: #8f0404 1px solid;
 }
@@ -66,11 +53,16 @@ button{
     width: 100%;
     height: 100vh;
     display: flex;
-    flex-direction: row;
     overflow: hidden;
+    justify-content: center;
+    background-color: var(--primary-color);
+    color: var(--body-color);
+}
+.container-login #login-title{
+    display: block;
+    margin-bottom: 2.5rem;
 }
 .sec-form{
-    width: 50%;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -88,22 +80,24 @@ button{
     align-items: center;
 }
 form{
-    width: 100%;
+    min-width: 25em;
     display: flex;
     flex-direction: column;
     justify-content: center;
 }
 #login-title{
     text-align: center;
-    font-size: 1.8em;
+    font-size: 2em;
     margin-bottom: 1rem;
+    font-weight: bold;
+    display: inline-block;
 }
 .lbl-form{
-    width: 90%;
-    margin: auto;
+    position: relative;
+    margin-bottom: 15px;
 }
 .btn-login{
-    background-color: #023047;
+    background-color: #EF233C;
     color: white;
     cursor: pointer;
     padding: .7pc;
@@ -113,7 +107,7 @@ form{
     font-weight: bold;
     font-size: 1em;
     border-radius: 5px;
-    width: 90%;
+    width: 100%;
 }
 .login-imageBackground{
     height: 100vh;
@@ -141,29 +135,25 @@ p{
 #lock,#person{
     position: absolute;
 }
-.sec-form .input-form{
-    width: 90%;
-    position: relative;
+
+.lbl-form .input-form{
+    padding: 15px 0px;
+    padding-left: 2.5rem;
+    border-radius: 2px;
+    background-color: #333650;
     border: none;
-    padding: 10px;
-    margin-left: 30px;
+    color: #D9D9D9;
+}
+.lbl-form .input-form::placeholder{
+    color: #D9D9D9;
+}
+.lbl-form .box-icon{
+    position: absolute;
+    display: block;
+    margin-top: 8px;
+    margin-left: 7px;
 }
 
-.input-form{
-    width: 90%;
-    position: relative;
-    border: #D9D9D9 2px solid;
-    padding: 10px;
-    margin-left: 30px;
-}
-.box-input-form{
-    width: 100%;
-    height: auto;
-    position: relative;
-    border-bottom: #023047 2px solid;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
 /*----------------------------------------------------------------------*/
 @media only screen and (max-width: 500px) {
     .navbar-layout{
@@ -215,10 +205,7 @@ p{
     width: calc(100% - 20pc);
     position: relative;
 }
-.form-type .input-field{
-    margin-left: 5px;
-    width: 15pc;
-}
+
 .form-type .title-3{
     width: 10pc;
     margin-right: 5px;

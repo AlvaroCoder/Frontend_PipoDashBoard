@@ -1,21 +1,31 @@
 import React,{useState, useEffect} from 'react';
-import {Link, Navigate} from 'react-router-dom'
+import {Link } from 'react-router-dom'
 import { useCookies } from 'react-cookie';
 import '../Assets/Components/NavBar.css';
 import { useUser } from '../Hooks/UserHook';
 import LoadingPage from '../Pages/LoadingPage';
+import Logo from '../Assets/Images/ShortLogo.png';
 function NavBar() {
     const { logout } = useUser();
     const [loading, setLoading] = useState(false);
     const [reactCookie] = useCookies(['user']);
+    const [open, setOpen] = useState(true);
+
+
+    const styleRoute = {
+        color : "#EDF2F4",
+        textDecoration : "none",
+        width : '100%',
+        display : 'flex',
+        alignItems : 'center'
+    }
     const routes = [
-        {nombre : 'Buscar', logo : 'person_search', route : '/', active : false},
-        {nombre : 'Clientes', logo : 'contact_page', route : '/clientes', active : false},
-        {nombre: 'Productos', logo:'inventory', route:'/products', active : false},
-        {nombre : 'Reportes', logo : 'monitoring', route : '/', active :  false},
-        {nombre : 'Ajustes', logo : 'settings', route : '/', active : false}
-    
+        {nombre : 'Buscar', iconName : 'bx bx-search icon', route : '/', active : false},
+        {nombre : 'Clientes', iconName : 'bx bxs-user icon', route : '/clientes', active : false},
+        {nombre: 'Productos', iconName:'bx bxs-store-alt icon', route:'/products', active : false},
     ]
+
+
     const logoutSession = (evt)=>{
         evt.preventDefault()
         setLoading(true)
@@ -39,29 +49,34 @@ function NavBar() {
     }
     else {
         return (
-            <nav>
-            <div className='logo-details'>
-                <h1>PIPO</h1>
-            </div>
-            <div className='nav-ctn-routes'>
-                {
-                    routes.map((val,key)=>{
-                        return (
-                            <div key={key} className='route'>
-                                <Link className='link-route' to={val.route}><span className='material-symbols-outlined'>{val.logo}</span><p className='item-route'>{val.nombre}</p></Link>
-                            </div>
-                        )
-                    })
-                }
-            </div>
-            <section className='sec-logout'>
-                <div >
-                    <p>{reactCookie.user.usuario}</p>
+            <nav className={open ? "sidebar" : "sidebar close"}>
+                <header>
+                    <div className='image-text'>
+                        <span className='image'>
+                            <img src={Logo} alt='logo'></img>
+                        </span>
+                        <div className='header-text'>
+                            <span className='name text'>PIPO</span>
+                            <span className='description text'>Zapatería Bazar</span>
+                        </div>
+                    </div>
+                    <i className='bx bx-chevron-right toggle' onClick={()=>setOpen(!open)}></i>
+                </header>
+                <div className='menu-routes'>
+                    <div className='menu'>
+                        <ul className='routes-links'>
+                            {
+                                routes.map((val,key)=>{
+                                    return (
+                                        <li key={key} className='route'>
+                                            <Link style={styleRoute} to={val.route}><i className={val.iconName}></i><span className='item-route text'>{val.nombre}</span></Link>
+                                        </li>
+                                    )
+                                })
+                            }
+                        </ul>
+                    </div>
                 </div>
-                <button onClick={logoutSession}>
-                    <span className="material-symbols-outlined">logout</span>
-                </button>
-            </section>
         </nav>
         )
     }

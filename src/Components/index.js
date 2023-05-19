@@ -12,3 +12,4 @@ export {default as ButtonTable }from './ButtonTable';
 export {default as InputList} from './ComboBoxData';
 export {default as PopUpWindowCliente} from './PopUpClienteProv';
 export {default as PopUpWindowProduct} from './PopUpProduct';
+export {default as TableClientes} from './TableClients'; 

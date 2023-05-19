@@ -5,7 +5,6 @@ function PopUpWindow({idcliente, token, setLoading}) {
     const deleteClient =async (evt)=>{
         evt.preventDefault();
         setLoading(true)
-        console.log("🚀 ~ file: ButtonTable.js:5 ~ PopUpWindow ~ idcliente:", idcliente)
         await DeleteClient(idcliente, token)
         setLoading(false);
         alert('Se elimino el cliente')
@@ -33,7 +32,7 @@ function ButtonTable({idcliente, token, setLoading}) {
     }
   return (
     <div className='ctn-btn-popup'>
-        <button onClick={OnshowPopUp} className='btn-edit-table'><span className="material-symbols-outlined">edit</span></button>
+        <button onClick={OnshowPopUp} className='btn-edit-table'><i class='bx bx-dots-horizontal-rounded'></i></button>
         {onShowPopUp ? <PopUpWindow idcliente={idcliente} token={token} setLoading={setLoading}/> : null}
     </div>
     )

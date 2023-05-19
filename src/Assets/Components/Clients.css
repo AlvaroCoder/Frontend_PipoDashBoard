@@ -1,42 +1,63 @@
+:root{
+    --body-color : #EDF2F4;
+    --primary-color : #2B2D42;
+    --primary-deg : #3D405F;
+    --secondary-color : #8D99AE;
+    --pbuttons-color : #EF233C;
+    --sbuttons-color : #D90429;
+
+    --text-size : 14px;
+
+}
 .ctn-clients{
     width: 100%;
     height: 100vh;
     position: relative;
-    color: #023047;
+    color: var(--primary-color);
+    background-color: var(--body-color);
     margin-top: 0;
     overflow-y: auto;
     overflow-x: hidden;
 }
 
 
-.ctn-table{
-    width: 100%;
-    height: auto;
-    overflow: hidden;
-    padding: .875rem 2rem;
+.table-clients .title{
+    font-size: 22px;
+    display: flex;
+    justify-content: start;
 }
-.table_body{
-    width: 100%;
-    overflow-x: auto;
-    margin-top: 0px;
+
+.table-clients tbody .column{
+    font-size: var(--text-size);
 }
-table{
-    width: 100%;
+
+.table-clients tbody .icon{
+    width: 30px;
+    height: 30px;
 }
+.table-clients tbody .column.name-icon{
+    display: flex;
+    align-items: center;
+}
+.table-clients tbody .name{
+    display: block;
+    min-height: 60px;
+    max-width: 220px;
+}
+.table-clients .row{
+    display: flex;
+    align-items: center;
+}
+/*========================================*/
+
 table, th, td{
     padding: .875rem;
     border-collapse: collapse;
 }
-thead{
-    border-bottom: 1px  #023047 solid;
-}
-thead th{
-    position: sticky;
-    top: 0;
-    left: 0;
-}
+
 tbody tr:nth-child(even){
-    background-color: #0000000b;
+    background-color: var(--primary-deg);
+    color: var(--body-color);
 }
 
 #nav-top{

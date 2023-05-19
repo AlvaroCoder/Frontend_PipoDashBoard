@@ -145,3 +145,13 @@
     height: 28vh;
     margin: auto;
 }
+.box-input-forms{
+    width: 100%;
+    object-fit: cover;
+    min-height: 10vh;
+}
+.box-input-forms .image{
+    object-fit: cover;
+    width: 100%;
+    min-height: 100px;
+}

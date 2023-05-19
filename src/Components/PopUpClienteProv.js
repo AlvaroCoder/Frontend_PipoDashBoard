@@ -129,8 +129,8 @@ function PopUpClienteProv({changeShowPopUp,changeOk}) {
                 <label  className='label-windowCliente'><p className='p-optwindowCliente'>Direccion</p><div className='item-field'><input onChange={onChange} placeholder='Dirección' name='direccion' className='input-field'/></div></label>
                 <label className='label-windowCliente'>
                   <p className='p-optwindowCliente'>Tipo</p>
-                  <div className='ctn-inputOpt' >
-                    <InputList data={optTipoCliente} setData={setTipoCliente}></InputList>
+                  <div className='ctn-inputOpt'>
+                    <InputList data={optTipoCliente} setData={setTipoCliente} />
                   </div>
       
                 </label>
@@ -143,14 +143,14 @@ function PopUpClienteProv({changeShowPopUp,changeOk}) {
                     <label className='label-windowCliente'><p className='p-optwindowCliente'>Telefono</p><input onChange={onChange} name='telefono' className='input-field'/></label>
                     <label className='label-windowCliente'>
                       <p className='p-optwindowCliente'>Género</p>
-                      <InputList data={optGenero} setData={setGenero}></InputList>
+                      <InputList data={optGenero} setData={setGenero} />
                     </label>
                     <label className='label-windowCliente'>
                       <p className='p-optwindowCliente'>Correo</p>
                       <input name='correo' onChange={onChange} type="email" className='input-field'/>
                     </label>
                     <label className='label-windowCliente'><p className='p-optwindowCliente'>Detalle Cliente</p><textarea ></textarea></label>
-                  
+                    
                   </div>
                   :null  
                 }

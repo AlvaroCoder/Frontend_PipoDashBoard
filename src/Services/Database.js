@@ -1,7 +1,7 @@
 
 // process.env.REACT_APP_API_ENDPOINT
 //"https://pipodashboard.fly.dev/" 
-const API_URL = "https://pipodashboard.fly.dev/" || 'http://localhost:8080/'
+const API_URL =  'http://localhost:8080/'
 
 export function LoginUser(data={}) {
     return fetch(`${API_URL}admin/signin`,{

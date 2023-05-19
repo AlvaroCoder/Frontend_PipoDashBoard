@@ -2,7 +2,7 @@ import React from 'react'
 import { useCookies } from 'react-cookie';
 import { Route, Routes } from 'react-router-dom'
 import { useUser } from '../Hooks/UserHook'
-import { Client,AddClient, LostPage, LoginPage, SearchPage, Products, AddCredit, AddProducts, Clients } from '../Pages'
+import { Client,AddClient, LostPage, LoginPage, SearchPage, Products, AddCredit, Clients } from '../Pages'
 import Layout from '../Pages/Layout';
 
 function ProtectedRoutes() {
@@ -23,9 +23,6 @@ function PanelRoutes() {
             </Route>
             <Route path='agregar'>
                 <Route path='cliente' element={<Layout><AddClient/></Layout>}></Route>
-                <Route path='producto'>
-                    <Route path='unidad' element={<Layout><AddProducts/></Layout>}></Route>
-                </Route>
                 <Route path='credito' element={<Layout><AddCredit/></Layout>}></Route>
             </Route>
             <Route path='/cliente/:idcliente' element={<Layout><Client/></Layout>}></Route>

@@ -54,28 +54,24 @@ function LoginPage() {
           {(errorLogin || error) && <div className='error-card'>
             <p>Error : {error.message}</p>
           </div>}
-            <div className='login-form'>
-              <form onSubmit={handleForm}>
-                <h1 id='login-title'>Iniciar Sesión</h1>
+          
+            <h1 id='login-title'>Iniciar Sesión</h1>
+            <form onSubmit={handleForm}>
                   <label className='lbl-form' id='usuario'>
-                    <div className='box-input-form'>
+                    <div className='box-icon'>
                       <span id='person' className="material-symbols-outlined">person</span> 
-                      <input className='input-form' name='usuario' placeholder='Usuario' value={data.usuario} onChange={handleChange}></input>
                     </div>
+                    <input className='input-form' name='usuario' placeholder='Usuario' value={data.usuario} onChange={handleChange}></input>
                   </label>
                   <label className='lbl-form' id='password'>
-                    <div className='box-input-form'>
+                    <div className='box-icon'>
                       <span id='lock' className="material-symbols-outlined">lock</span>
-                      <input type='password' className='input-form' name='contrasenna' placeholder='Contraseña' value={data.contrasenna} onChange={handleChange}></input>
                     </div>
+                    <input type='password' className='input-form' name='contrasenna' placeholder='Contraseña' value={data.contrasenna} onChange={handleChange}></input>
                   </label>
                   <button className='btn-login' type='submit'>Ingresar</button>
               </form>
-            </div>
         </section>
-        <div className='login-imageBackground'>
-  
-        </div>
       </div>
       )
   }

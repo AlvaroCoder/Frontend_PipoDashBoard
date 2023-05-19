@@ -5,9 +5,7 @@ function Layout({children}) {
   return (
     <div id='container'>
         <NavBar/>
-        <div className='space-nav'>
-        </div>
-        <div className='space-left'>
+        <div className='box-container'>
             {children}
         </div>
     </div>
