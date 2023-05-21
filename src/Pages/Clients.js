@@ -6,9 +6,11 @@ import '../Assets/Components/Clients.css'
 
 function Clients() {
   const [client, setClient] = useState([]);
+  const [clientsData, setClientsData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showPopUp, setShowPopUp] = useState(false);
   const [ok, setOk] = useState(false);
+  const [query, setQuery] = useState('');
   useEffect(() => {
     async function fetchData() {
       const clients = await GetClients();
@@ -21,6 +23,16 @@ function Clients() {
     evt.preventDefault();
     setShowPopUp(!showPopUp)
   }
+  const handleOnChange = (evt)=>{
+    evt.preventDefault();
+    const target = evt.target;
+    setQuery(target.value);
+    const dataClient = [...client]
+    const data = query === '' ? dataClient : dataClient.filter((val)=>{
+      return val.nombre.toLowerCase().includes(query.toLowerCase())
+    });
+    setClientsData(data);
+  }
   if (loading) {
     return <LoadingPage/>
   }else{
@@ -28,20 +40,16 @@ function Clients() {
       <div className='ctn-clients'>
           { ok ?  <div className='box-succesfull-created'><p className='text-box-succesfull'>Cliente creado correctamente</p></div> : null}
           {showPopUp ? <PopUpWindowCliente changeOk={setOk} changeShowPopUp={setShowPopUp}/> : null}
-          <div id='nav-top'>
-            <div>
+          <div className='nav-top'>
+            <div className='elements'>
               <h1  className='title-1'>Clientes</h1>
-            </div>
-            <div className='ctn-btns-top'>
-              <button style={{background:'#023047', color :'white', borderRadius:'10px'}} onClick={changeShowPopUp} ><span>Nuevo Cliente / Proveedor</span></button>
-              <button>Exportar Clientes</button>
+              <button className='button' onClick={changeShowPopUp} ><span>Nuevo Cliente</span></button>
+              <input value={query}  onChange={handleOnChange} className='search-user' placeholder='Busca un cliente ..'></input>
             </div>
           </div>
-          <div className='ctn-table'>
-              <section className='table_body'>
-                <TableClientes clientes={client} setLoading={setLoading}/>
-              </section>            
-            </div>
+          <section className='table_body'>
+            <TableClientes clientes={query === '' ? client : clientsData} setLoading={setLoading}/>
+          </section>  
       </div>
     )
   }

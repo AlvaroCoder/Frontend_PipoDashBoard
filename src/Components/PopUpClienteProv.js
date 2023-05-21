@@ -94,7 +94,7 @@ function PopUpClienteProv({changeShowPopUp,changeOk}) {
             <div className='windowCliente'>
               <div className='topWindowCliente'>
                 <h1>Nuevo Cliente</h1>
-                <button onClick={changeShowPopupUpWindow}><span class="material-symbols-outlined">close</span></button>
+                <button onClick={changeShowPopupUpWindow}><i className='bx bx-x'></i></button>
               </div>       
               <div className='bodyWindowCliente'>
                 <label id='first' className='label-windowCliente'>

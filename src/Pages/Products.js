@@ -10,25 +10,23 @@ function Products() {
   return (
     <div className='ctn-products'>
         {showPopUp ? <PopUpWindowProduct changeShopwPopUp={setShowPopUp}/> : null}
-        <div>
-          <div>
+        <div className='nav-top'>
+          <div className='elements'>
             <h1 className='title-1'>Productos</h1>
-          </div>
-          <div className='ctn-btns-top'>
-            <button style={{background:'#023047', color :'white', borderRadius:'10px'}} onClick={changeShowPopUp} ><span>Nuevo Cliente / Proveedor</span></button>
+            <button  className='button' onClick={changeShowPopUp} ><span>Nuevo Cliente / Proveedor</span></button>
           </div>
         </div>
         <div className='ctn-table'>
           <section className='table_body'>
-            <table>
+            <table className='table-clients'>
               <thead>
                 <tr>
-                  <th><h2 className='title-2'>Código</h2></th>
-                  <th><h2 className='title-2'>Nombre</h2></th>
-                  <th><h2 className='title-2'>Precio</h2></th>
-                  <th><h2 className='title-2'>Cantidad</h2></th>
-                  <tr><h2 className='title-2'>Categoría</h2></tr>
-                  <tr><h2 className='title-2'>Serie</h2></tr>
+                  <th><h2 className='title'>Código</h2></th>
+                  <th><h2 className='title'>Nombre</h2></th>
+                  <th><h2 className='title'>Precio</h2></th>
+                  <th><h2 className='title'>Cantidad</h2></th>
+                  <tr><h2 className='title'>Categoría</h2></tr>
+                  <tr><h2 className='title'>Serie</h2></tr>
                 </tr>
               </thead>
             </table>

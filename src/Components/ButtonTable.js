@@ -32,7 +32,7 @@ function ButtonTable({idcliente, token, setLoading}) {
     }
   return (
     <div className='ctn-btn-popup'>
-        <button onClick={OnshowPopUp} className='btn-edit-table'><i class='bx bx-dots-horizontal-rounded'></i></button>
+        <i class='bx bx-dots-horizontal-rounded action' onClick={OnshowPopUp}></i>
         {onShowPopUp ? <PopUpWindow idcliente={idcliente} token={token} setLoading={setLoading}/> : null}
     </div>
     )

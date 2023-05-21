@@ -3,86 +3,123 @@
     --primary-color : #2B2D42;
     --primary-deg : #3D405F;
     --secondary-color : #8D99AE;
+    --secondary-deg : #E3EAED;
     --pbuttons-color : #EF233C;
     --sbuttons-color : #D90429;
 
-    --text-size : 14px;
+    --text-size : 16px;
 
 }
 .ctn-clients{
-    width: 100%;
-    height: 100vh;
-    position: relative;
-    color: var(--primary-color);
-    background-color: var(--body-color);
-    margin-top: 0;
+    max-height: 100vh;
+    max-width: 100%;
     overflow-y: auto;
     overflow-x: hidden;
 }
+.table_body{
+    min-width: calc(100% - 50px);
+    min-height: calc(100vh - 4rem);
+    padding: 20px 30px;
+    background-color: var(--body-color);
+}
 
+.table-clients{
+    background-color: var(--body-color);
+    color: var(--primary-color);
+    position: relative;
+    width: 100%;
+    margin-top: 0;
+    border-collapse: collapse;
+}
+.table-clients .row{
+    max-height: 80px;
+    box-sizing: border-box;
+}
 
+tbody tr:nth-child(even){
+    background-color: var(--secondary-deg);
+}
 .table-clients .title{
-    font-size: 22px;
-    display: flex;
-    justify-content: start;
+    font-size: 20px;
+    text-align: left;
 }
 
 .table-clients tbody .column{
     font-size: var(--text-size);
+    white-space: nowrap;
 }
-
 .table-clients tbody .icon{
     width: 30px;
     height: 30px;
 }
-.table-clients tbody .column.name-icon{
-    display: flex;
-    align-items: center;
+.table-clients tbody .btn-action{
+    background-color: var(--body-color);
 }
+
+
 .table-clients tbody .name{
     display: block;
-    min-height: 60px;
-    max-width: 220px;
+    min-height: fit-content;
 }
-.table-clients .row{
-    display: flex;
-    align-items: center;
-}
-/*========================================*/
-
-table, th, td{
-    padding: .875rem;
-    border-collapse: collapse;
-}
-
-tbody tr:nth-child(even){
+thead,  td{
+    border-bottom: 1px solid var(--secondary-color);
+    padding: .625rem;
+    word-break: break-all;
+} 
+.table-clients thead th{
+    position: sticky;
+    padding: 0px 10px;
+    top: 0;
+    left: 0;
     background-color: var(--primary-deg);
+    z-index: 100;
     color: var(--body-color);
 }
 
-#nav-top{
+
+/*====================================================*/
+.nav-top{
     width: 100%;
     min-height: 4rem;
     display: flex;
-    flex-direction: row;
     align-items: center;
-    justify-content: flex-start;
-    padding: .875rem 1.25rem;
-    border-bottom : 1px #023047 solid;
+    padding: 20px 35px;
+    background-color: var(--body-color);
+}
+.nav-top .elements{
+    width: calc(100% - 70px);
+}
+.nav-top .elements .search-user{
+    float: right;
+    min-width: 250px;
+    background-color: var(--secondary-color);
+    color: var(--body-color);
+    padding: 15px 20px;
+    font-size: 14px;
+    border: none;
+    margin-right: 20px;
+    border-radius: 5px;
+
+    box-shadow: 9px 11px 5px -8px rgba(0,0,0,0.2);
+    -webkit-box-shadow: 9px 11px 5px -8px rgba(0,0,0,0.2);
+    -moz-box-shadow: 9px 11px 5px -8px rgba(0,0,0,0.2);
+}
+.nav-top .elements .search-user::placeholder{
+    color: var(--body-color);
 }
 .title-1{
-    font-size: 1.6em;
-    font-weight: 700;
+    font-size: 24px;
+    color: var(--primary-color);
+    display: inline-block;
 }
-#nav-top .ctn-btns-top{
-    width: 30rem;
-    height: 2.2rem;
-    align-items: flex-end;
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin-left: 1rem;
+.button{
+    float: right;
+    background-color: var(--pbuttons-color);
+    border-radius: 5px;
+    color: var(--body-color);
+    left: 20px;
 }
+/*================================================*/
 .popup{
     position: absolute;
     top: 0;
@@ -117,4 +154,15 @@ tbody tr:nth-child(even){
     position: relative;
     display: flex;
     justify-content: center;
+}
+
+::-webkit-scrollbar{
+    height: 5px;
+    width: 5px;
+}
+::-webkit-scrollbar-track{
+    box-shadow: inset 0 0 6px var(--primary-color);
+}
+::-webkit-scrollbar-thumb{
+    box-shadow: inset 0 0 6px var(--primary-color);
 }
