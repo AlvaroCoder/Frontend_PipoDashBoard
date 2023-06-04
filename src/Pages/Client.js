@@ -10,19 +10,25 @@ function Client() {
     useEffect(() => {
         async function getData() {
             const response = await GetClientById(idcliente).then(async(val)=>{return await val.json()})
-            console.log("🚀 ~ file: Client.js:13 ~ getData ~ response:", response)
             setLoading(false);
             setClient(response)
         }
       getData()
-    }, [])
+    }, [idcliente])
     
     if (loading) {
         return <LoadingPage/>
     }else{
         return(
-            <div>
-                <h1>Bienvenido {client.nombre}</h1>
+            <div className='ctn-client'>
+                <div className='top-client'>
+                    <div className='data-client'>
+                        <h1>{client.nombre}</h1>
+                        <section>
+                            <p>{client.cumpleannos}</p>
+                        </section>
+                    </div>
+                </div>
             </div>
         )
     }

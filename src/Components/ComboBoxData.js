@@ -6,7 +6,6 @@ import PopperUnstyled from '@mui/base/PopperUnstyled';
 import { styled } from '@mui/system';
 import { ChevronUpDownIcon } from '@heroicons/react/20/solid';
 
-
 const blue = {
     100: '#DAECFF',
     200: '#99CCF3',
@@ -203,7 +202,8 @@ export default function UnstyleListParams({data,setData}) {
     
     const onChangeData2Send = (evt)=>{
         evt.preventDefault();
-        setData(evt.target.outerText.toUpperCase())
+        const displayName = evt.target.outerText.toUpperCase() || ""
+        setData(displayName.slice(0,1))
       }
     return(
         <CustomSelect
@@ -212,7 +212,7 @@ export default function UnstyleListParams({data,setData}) {
         >
         {
             copyData.map((val)=>{
-                return <StyledOption key={val.index} value={val.nombre}>{val.displayName || val.valor}</StyledOption>
+                return <StyledOption key={val.index} value={val.nombre}>{val.displayName}</StyledOption>
             })
         }                    
         </CustomSelect>

@@ -21,10 +21,10 @@ function TableClients({clientes, setLoading}) {
               return(
                 <tr key={key} className='row'>
                   <td className='column name-icon'><strong className='name'>{el.nombre} {el.apellido}</strong></td>
-                  <td className='column'><span>{String(el.documento) === "0" ? <p><strong >SIN DOCUMENTO</strong> 00000000</p> : String(el.documento).length === 8 ? <p><strong >DNI</strong> {el.documento}</p> : <p><strong >RUC</strong> {el.documento}</p> }</span></td>
+                  <td className='column'><span>{String(el.nro_doc) === "0" ? <p><strong >SIN DOCUMENTO</strong> 00000000</p> : String(el.nro_doc).length === 8 ? <p><strong >DNI</strong> {el.nro_doc}</p> : <p><strong >RUC</strong> {el.nro_doc}</p> }</span></td>
                   <td className='column'>{el.direccion ? <span>{el.direccion}</span> : <span>-</span>}</td>
                   <td className='column'>{el.telefono ? <span>{el.telefono}</span> : <span>-</span>}</td>
-                  <td className='column'><ButtonTable idcliente={el.idcliente} token={cookieAuthor.user.token} setLoading={setLoading}></ButtonTable></td>
+                  <td className='column'><ButtonTable client={el} token={cookieAuthor.user.token} setLoading={setLoading}></ButtonTable></td>
                 </tr>
               )
             })

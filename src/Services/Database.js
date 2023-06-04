@@ -1,7 +1,8 @@
 
 // process.env.REACT_APP_API_ENDPOINT
 //"https://pipodashboard.fly.dev/" 
-const API_URL =  'https://pipodashboard.fly.dev/'
+// "http://localhost:8080/"
+const API_URL =  "http://localhost:8080/"
 
 export function LoginUser(data={}) {
     return fetch(`${API_URL}admin/signin`,{
@@ -123,5 +124,17 @@ export function DeleteClient(idcliente,token) {
             'Authorization':String(token),
             'client-id' : String(idcliente)
         }
+    })
+}
+
+export function UpdateClient(bodyData, token) {
+    return fetch(`${API_URL}client/`,{
+        method : 'PUT',
+        mode : 'cors',
+        headers : {
+            'Authorization' : String(token),
+            'Content-Type':'application/json'
+        },
+        body : JSON.stringify(bodyData)
     })
 }

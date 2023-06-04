@@ -1,33 +1,29 @@
-import React,{useEffect, useState} from 'react'
+import React,{ useState } from 'react'
 import { PopUpWindowCliente, TableClientes } from '../Components';
-import { GetClients } from '../Services/Database';
 import LoadingPage from './LoadingPage';
 import '../Assets/Components/Clients.css'
+import { useClient } from '../Hooks/ClientHook';
 
 function Clients() {
-  const [client, setClient] = useState([]);
+  const { dataClients, popup, isNewClient,changePopup, resetClient, setIsNewClient } = useClient();
   const [clientsData, setClientsData] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [showPopUp, setShowPopUp] = useState(false);
   const [ok, setOk] = useState(false);
   const [query, setQuery] = useState('');
-  useEffect(() => {
-    async function fetchData() {
-      const clients = await GetClients();
-      const cliente_data = await clients.json();
-      setClient(cliente_data);
-    }
-    fetchData()
-  }, [])
+
   const changeShowPopUp = (evt)=>{
     evt.preventDefault();
-    setShowPopUp(!showPopUp)
+    resetClient();
+    if (isNewClient) {
+      setIsNewClient(true);
+    }
+    changePopup();
   }
   const handleOnChange = (evt)=>{
     evt.preventDefault();
     const target = evt.target;
     setQuery(target.value);
-    const dataClient = [...client]
+    const dataClient = [...dataClients]
     const data = query === '' ? dataClient : dataClient.filter((val)=>{
       return val.nombre.toLowerCase().includes(query.toLowerCase())
     });
@@ -39,7 +35,7 @@ function Clients() {
     return (
       <div className='ctn-clients'>
           { ok ?  <div className='box-succesfull-created'><p className='text-box-succesfull'>Cliente creado correctamente</p></div> : null}
-          {showPopUp ? <PopUpWindowCliente changeOk={setOk} changeShowPopUp={setShowPopUp}/> : null}
+          {popup ? <PopUpWindowCliente changeOk={setOk} /> : null}
           <div className='nav-top'>
             <div className='elements'>
               <h1  className='title-1'>Clientes</h1>
@@ -48,7 +44,7 @@ function Clients() {
             </div>
           </div>
           <section className='table_body'>
-            <TableClientes clientes={query === '' ? client : clientsData} setLoading={setLoading}/>
+            <TableClientes clientes={query === '' ? dataClients : clientsData} setLoading={setLoading}/>
           </section>  
       </div>
     )

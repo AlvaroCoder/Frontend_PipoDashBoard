@@ -41,7 +41,7 @@ function LoginPage() {
       }
     }
     SendData();
-  }, [loadinPage])
+  }, [loadinPage,data,login])
   
   if (loadinPage) {
     return (

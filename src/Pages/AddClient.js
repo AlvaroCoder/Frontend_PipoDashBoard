@@ -1,7 +1,5 @@
 import React,{useState} from 'react'
-import '../Assets/Components/AddClient.css'
-import { SaveData, ScrapperUser } from '../Services/Database';
-import { CircularProgress } from '@mui/material';
+import { SaveData } from '../Services/Database';
 import {ComboBox} from '../Components'
 import { useCookies } from 'react-cookie'
 import LoadingPage from './LoadingPage';

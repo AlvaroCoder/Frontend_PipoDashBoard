@@ -2,15 +2,12 @@ import React,{useState, useEffect} from 'react';
 import {Link } from 'react-router-dom'
 import { useCookies } from 'react-cookie';
 import '../Assets/Components/NavBar.css';
-import { useUser } from '../Hooks/UserHook';
 import LoadingPage from '../Pages/LoadingPage';
 import Logo from '../Assets/Images/ShortLogo.png';
 function NavBar() {
-    const { logout } = useUser();
     const [loading, setLoading] = useState(false);
-    const [reactCookie] = useCookies(['user']);
-    const [open, setOpen] = useState(true);
-
+    const [navCookie, setNavCookie] = useCookies(['open-nav']);
+    const [open, setOpen] = useState(navCookie['open-nav']==='false');
 
     const styleRoute = {
         color : "#EDF2F4",
@@ -24,12 +21,13 @@ function NavBar() {
         {nombre : 'Clientes', iconName : 'bx bxs-user icon', route : '/clientes', active : false},
         {nombre: 'Productos', iconName:'bx bxs-store-alt icon', route:'/products', active : false},
     ]
-
-
-    const logoutSession = (evt)=>{
-        evt.preventDefault()
-        setLoading(true)
-        logout()
+    const changeOpen = (evt)=>{
+        evt.preventDefault();
+        setOpen(s=>!s);
+        setNavCookie("open-nav",String(open), {
+            expires : new Date(Date.now()+(1*60*60*24*1000))
+        })
+        return;
     }
     useEffect(() => {
         function closeSession() {
@@ -41,6 +39,7 @@ function NavBar() {
         }
         closeSession()
     }, [loading])
+
 
     if (loading) {
         return (
@@ -60,7 +59,7 @@ function NavBar() {
                             <span className='description text'>Zapatería Bazar</span>
                         </div>
                     </div>
-                    <i className='bx bx-chevron-right toggle' onClick={()=>setOpen(!open)}></i>
+                    <i className='bx bx-chevron-right toggle' onClick={changeOpen}></i>
                 </header>
                 <div className='menu-routes'>
                     <div className='menu'>
